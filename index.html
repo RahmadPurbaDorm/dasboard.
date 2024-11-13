@@ -1,1 +1,22 @@
-p
+<script>
+    <script>
+// Animasi Scroll untuk Efek Fade-In
+document.addEventListener('DOMContentLoaded', function () {
+    const images = document.querySelectorAll('.image-mockup img');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    });
+
+    images.forEach((img) => {
+        observer.observe(img);
+    });
+});
+</script>
+
+    </script>
+    
