@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RahmadPurba.DORM - Peta Lokasi</title>
+    <title>Lokasi Kos Rahmad Purba</title>
     <style>
         /* CSS untuk styling peta */
         #map {
@@ -22,15 +22,15 @@
     </style>
 </head>
 <body>
-    <h1>Lokasi RahmadPurba.DORM</h1>
+    <h1>Lokasi Kos Rahmad Purba</h1>
     <div id="map"></div>
 
     <!-- Google Maps JavaScript API -->
     <script>
         // Inisialisasi fungsi untuk membuat peta
         function initMap() {
-            // Koordinat lokasi: Jl. Penantian, Tebing Tinggi
-            const lokasi = { lat: 3.328135, lng: 99.142165 };
+            // Koordinat lokasi Kos Rahmad Purba
+            const lokasi = { lat: 3.3418475, lng: 99.1602086 };
 
             // Membuat objek peta baru
             const map = new google.maps.Map(document.getElementById("map"), {
@@ -41,31 +41,11 @@
                 fullscreenControl: true   // Mengaktifkan kontrol fullscreen
             });
 
-            // Gaya peta kustom
-            const mapStyles = [
-                {
-                    "featureType": "water",
-                    "elementType": "geometry",
-                    "stylers": [{ "color": "#aadaff" }]
-                },
-                {
-                    "featureType": "road",
-                    "elementType": "geometry",
-                    "stylers": [{ "color": "#ffe7a1" }]
-                },
-                {
-                    "featureType": "poi",
-                    "elementType": "labels.text.fill",
-                    "stylers": [{ "color": "#747474" }]
-                }
-            ];
-            map.setOptions({ styles: mapStyles });
-
             // Membuat marker dengan ikon kustom
             const marker = new google.maps.Marker({
                 position: lokasi,
                 map: map,
-                title: "RahmadPurba.DORM",
+                title: "Kos Rahmad Purba",
                 animation: google.maps.Animation.DROP,
                 icon: {
                     url: "https://cdn-icons-png.flaticon.com/512/684/684908.png",
@@ -77,8 +57,8 @@
             const infoWindow = new google.maps.InfoWindow({
                 content: `
                     <div style="text-align: left;">
-                        <h3>RahmadPurba.DORM</h3>
-                        <p>Alamat: Jl. Penantian, Jl. Ir. H. Juanda, LK 1, Kec. Rambutan, Kota Tebing Tinggi, Sumatera Utara 20611</p>
+                        <h3>Kos Rahmad Purba</h3>
+                        <p>Alamat: Jl. Penantian, Tebing Tinggi, Sumatera Utara 20611</p>
                         <p><strong>Telepon:</strong> 0812-3456-7890</p>
                     </div>
                 `
