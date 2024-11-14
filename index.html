@@ -30,33 +30,33 @@
         // Inisialisasi fungsi untuk membuat peta
         function initMap() {
             // Koordinat lokasi: Jl. Penantian, Tebing Tinggi
-            const lokasi = { lat: 3.328505, lng: 99.152083 };
+            const lokasi = { lat: 3.328135, lng: 99.142165 };
 
             // Membuat objek peta baru
             const map = new google.maps.Map(document.getElementById("map"), {
-                zoom: 15,                 // Zoom level peta
+                zoom: 16,                 // Zoom level peta
                 center: lokasi,           // Posisi tengah peta
                 mapTypeControl: true,     // Mengaktifkan kontrol tipe peta
                 streetViewControl: true,  // Mengaktifkan kontrol street view
                 fullscreenControl: true   // Mengaktifkan kontrol fullscreen
             });
 
-            // Menambahkan gaya kustom ke peta
+            // Gaya peta kustom
             const mapStyles = [
                 {
                     "featureType": "water",
                     "elementType": "geometry",
-                    "stylers": [{ "color": "#aadaff" }]  // Warna air
+                    "stylers": [{ "color": "#aadaff" }]
                 },
                 {
                     "featureType": "road",
                     "elementType": "geometry",
-                    "stylers": [{ "color": "#ffe7a1" }]  // Warna jalan
+                    "stylers": [{ "color": "#ffe7a1" }]
                 },
                 {
                     "featureType": "poi",
                     "elementType": "labels.text.fill",
-                    "stylers": [{ "color": "#747474" }]  // Warna teks POI
+                    "stylers": [{ "color": "#747474" }]
                 }
             ];
             map.setOptions({ styles: mapStyles });
@@ -66,10 +66,10 @@
                 position: lokasi,
                 map: map,
                 title: "RahmadPurba.DORM",
-                animation: google.maps.Animation.DROP, // Animasi saat marker muncul
+                animation: google.maps.Animation.DROP,
                 icon: {
-                    url: "https://cdn-icons-png.flaticon.com/512/684/684908.png", // URL ikon marker
-                    scaledSize: new google.maps.Size(50, 50)  // Ukuran ikon
+                    url: "https://cdn-icons-png.flaticon.com/512/684/684908.png",
+                    scaledSize: new google.maps.Size(50, 50)
                 }
             });
 
@@ -78,7 +78,7 @@
                 content: `
                     <div style="text-align: left;">
                         <h3>RahmadPurba.DORM</h3>
-                        <p>Alamat: Jl. Penantian, Kota Tebing Tinggi, Sumatera Utara</p>
+                        <p>Alamat: Jl. Penantian, Jl. Ir. H. Juanda, LK 1, Kec. Rambutan, Kota Tebing Tinggi, Sumatera Utara 20611</p>
                         <p><strong>Telepon:</strong> 0812-3456-7890</p>
                     </div>
                 `
@@ -92,6 +92,6 @@
     </script>
 
     <!-- Memanggil Google Maps JavaScript API -->
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"></script>
+    <script async defer src="https://maps.app.goo.gl/WeaKBJQKnY1mv98q6?g_st=iw"></script>
 </body>
 </html>
