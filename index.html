@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lokasi Kos Rahmad Purba</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <style>
         /* CSS untuk styling peta */
         #map {
@@ -25,53 +26,23 @@
     <h1>Lokasi Kos Rahmad Purba</h1>
     <div id="map"></div>
 
-    <!-- Google Maps JavaScript API -->
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script>
-        // Inisialisasi fungsi untuk membuat peta
-        function initMap() {
-            // Koordinat lokasi Kos Rahmad Purba
-            const lokasi = { lat: 3.3418475, lng: 99.1602086 };
+        // Inisialisasi peta dengan koordinat lokasi Kos Rahmad Purba
+        var map = L.map('map').setView([3.3418475, 99.1602086], 16); // Koordinat lat, lng dan zoom level
 
-            // Membuat objek peta baru
-            const map = new google.maps.Map(document.getElementById("map"), {
-                zoom: 16,                 // Zoom level peta
-                center: lokasi,           // Posisi tengah peta
-                mapTypeControl: true,     // Mengaktifkan kontrol tipe peta
-                streetViewControl: true,  // Mengaktifkan kontrol street view
-                fullscreenControl: true   // Mengaktifkan kontrol fullscreen
-            });
+        // Menambahkan tile layer dari OpenStreetMap
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
 
-            // Membuat marker dengan ikon kustom
-            const marker = new google.maps.Marker({
-                position: lokasi,
-                map: map,
-                title: "Kos Rahmad Purba",
-                animation: google.maps.Animation.DROP,
-                icon: {
-                    url: "https://cdn-icons-png.flaticon.com/512/684/684908.png",
-                    scaledSize: new google.maps.Size(50, 50)
-                }
-            });
+        // Menambahkan marker pada lokasi
+        var marker = L.marker([3.3418475, 99.1602086]).addTo(map);
 
-            // Menambahkan InfoWindow (Popup info)
-            const infoWindow = new google.maps.InfoWindow({
-                content: `
-                    <div style="text-align: left;">
-                        <h3>Kos Rahmad Purba</h3>
-                        <p>Alamat: Jl. Penantian, Tebing Tinggi, Sumatera Utara 20611</p>
-                        <p><strong>Telepon:</strong> 0812-3456-7890</p>
-                    </div>
-                `
-            });
-
-            // Event listener untuk menampilkan info window saat marker diklik
-            marker.addListener("click", () => {
-                infoWindow.open(map, marker);
-            });
-        }
+        // Menambahkan popup ke marker dengan informasi
+        marker.bindPopup("<b>Kos Rahmad Purba</b><br>Alamat: Jl. Penantian, Tebing Tinggi, Sumatera Utara 20611<br><strong>Telepon:</strong> 0812-3456-7890")
+            .openPopup();
     </script>
-
-    <!-- Memanggil Google Maps JavaScript API dengan key -->
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&callback=initMap"></script>
 </body>
 </html>
