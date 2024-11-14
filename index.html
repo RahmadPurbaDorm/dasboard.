@@ -7,13 +7,17 @@
     <style>
         /* CSS untuk styling peta */
         #map {
-            height: 500px;
-            width: 100%;
+            height: 500px;   /* Tinggi peta */
+            width: 100%;     /* Lebar peta 100% dari halaman */
+            margin-bottom: 20px;
         }
         body {
             font-family: Arial, sans-serif;
             text-align: center;
             padding: 20px;
+        }
+        h1 {
+            color: #333;
         }
     </style>
 </head>
@@ -23,41 +27,71 @@
 
     <!-- Google Maps JavaScript API -->
     <script>
+        // Inisialisasi fungsi untuk membuat peta
         function initMap() {
+            // Koordinat lokasi: Jl. Penantian, Tebing Tinggi
             const lokasi = { lat: 3.328505, lng: 99.152083 };
 
+            // Membuat objek peta baru
             const map = new google.maps.Map(document.getElementById("map"), {
-                zoom: 15,
-                center: lokasi,
-                styles: [
-                    {
-                        "featureType": "water",
-                        "elementType": "geometry",
-                        "stylers": [{"color": "#aadaff"}]
-                    },
-                    {
-                        "featureType": "road",
-                        "elementType": "geometry",
-                        "stylers": [{"color": "#ffe7a1"}]
-                    }
-                ]
+                zoom: 15,                 // Zoom level peta
+                center: lokasi,           // Posisi tengah peta
+                mapTypeControl: true,     // Mengaktifkan kontrol tipe peta
+                streetViewControl: true,  // Mengaktifkan kontrol street view
+                fullscreenControl: true   // Mengaktifkan kontrol fullscreen
             });
 
+            // Menambahkan gaya kustom ke peta
+            const mapStyles = [
+                {
+                    "featureType": "water",
+                    "elementType": "geometry",
+                    "stylers": [{ "color": "#aadaff" }]  // Warna air
+                },
+                {
+                    "featureType": "road",
+                    "elementType": "geometry",
+                    "stylers": [{ "color": "#ffe7a1" }]  // Warna jalan
+                },
+                {
+                    "featureType": "poi",
+                    "elementType": "labels.text.fill",
+                    "stylers": [{ "color": "#747474" }]  // Warna teks POI
+                }
+            ];
+            map.setOptions({ styles: mapStyles });
+
+            // Membuat marker dengan ikon kustom
             const marker = new google.maps.Marker({
                 position: lokasi,
                 map: map,
-                title: "RahmadPurba.DORM"
+                title: "RahmadPurba.DORM",
+                animation: google.maps.Animation.DROP, // Animasi saat marker muncul
+                icon: {
+                    url: "https://cdn-icons-png.flaticon.com/512/684/684908.png", // URL ikon marker
+                    scaledSize: new google.maps.Size(50, 50)  // Ukuran ikon
+                }
             });
 
+            // Menambahkan InfoWindow (Popup info)
             const infoWindow = new google.maps.InfoWindow({
-                content: "<h3>RahmadPurba.DORM</h3><p>Jl. Penantian, Tebing Tinggi, Sumatera Utara</p>"
+                content: `
+                    <div style="text-align: left;">
+                        <h3>RahmadPurba.DORM</h3>
+                        <p>Alamat: Jl. Penantian, Kota Tebing Tinggi, Sumatera Utara</p>
+                        <p><strong>Telepon:</strong> 0812-3456-7890</p>
+                    </div>
+                `
             });
 
+            // Event listener untuk menampilkan info window saat marker diklik
             marker.addListener("click", () => {
                 infoWindow.open(map, marker);
             });
         }
     </script>
-    <script async src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"></script>
+
+    <!-- Memanggil Google Maps JavaScript API -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"></script>
 </body>
 </html>
