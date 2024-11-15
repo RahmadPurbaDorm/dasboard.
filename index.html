@@ -3,20 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lokasi Kos Rahmad Purba</title>
-    <!-- Link ke file CSS eksternal -->
-    <link rel="stylesheet" href="style.css">
+    <title>Peta Sederhana</title>
+    <!-- Link ke Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        /* Menambahkan CSS untuk ukuran peta */
+        #map {
+            height: 400px;  /* Tentukan tinggi peta */
+            width: 100%;    /* Lebar peta mengikuti lebar kontainer */
+        }
+    </style>
 </head>
 <body>
-    <div class="content">
-        <h1>Lokasi Kos Rahmad Purba</h1>
-        <div id="map"></div>
-    </div>
+    <h1>Peta Lokasi Kos Rahmad Purba</h1>
+    <div id="map"></div>
 
     <!-- Leaflet JS -->
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script>
-        // Inisialisasi peta dengan koordinat lokasi Kos Rahmad Purba
+        // Inisialisasi peta dengan koordinat lokasi dan zoom level
         var map = L.map('map').setView([3.3418475, 99.1602086], 16); // Koordinat lat, lng dan zoom level
 
         // Menambahkan tile layer dari OpenStreetMap
@@ -28,7 +33,7 @@
         var marker = L.marker([3.3418475, 99.1602086]).addTo(map);
 
         // Menambahkan popup ke marker dengan informasi
-        marker.bindPopup("<b>Kos Rahmad Purba</b><br>Alamat: Jl. Penantian, Tebing Tinggi, Sumatera Utara 20611<br><strong>Telepon:</strong> 0812-3456-7890")
+        marker.bindPopup("<b>Kos Rahmad Purba</b><br>Alamat: Jl. Penantian, Tebing Tinggi, Sumatera Utara")
             .openPopup();
     </script>
 </body>
