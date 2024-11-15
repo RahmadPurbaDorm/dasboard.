@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Peta Sederhana</title>
+    <title>Peta Kos Rahmad Purba</title>
     <!-- Link ke Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <style>
         /* Menambahkan CSS untuk ukuran peta */
         #map {
-            height: 800px;  /* Tentukan tinggi peta */
+            height: 400px;  /* Tentukan tinggi peta */
             width: 100%;    /* Lebar peta mengikuti lebar kontainer */
         }
     </style>
@@ -29,11 +29,16 @@
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
 
-        // Menambahkan marker pada lokasi
-        var marker = L.marker([3.3418475, 99.1602086]).addTo(map);
+        // Koordinat lokasi Kos Rahmad Purba
+        var lat = 3.3418475;
+        var lng = 99.1602086;
 
-        // Menambahkan popup ke marker dengan informasi
-        marker.bindPopup("<b>Kos Rahmad Purba</b><br>Alamat: Jl. Penantian, Tebing Tinggi, Sumatera Utara")
+        // Menambahkan marker pada lokasi
+        var marker = L.marker([lat, lng]).addTo(map);
+
+        // Menambahkan popup ke marker dengan tautan ke Google Maps
+        marker.bindPopup("<b>Kos Rahmad Purba</b><br>Alamat: Jl. Penantian, Tebing Tinggi, Sumatera Utara<br>" +
+            "<a href='https://www.google.com/maps?q=" + lat + "," + lng + "' target='_blank'>Lihat di Google Maps</a>")
             .openPopup();
     </script>
 </body>
