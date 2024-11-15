@@ -1,13 +1,15 @@
-.map {
+#map {
     height: 500px;   /* Tinggi peta */
     width: 100%;     /* Lebar peta 100% dari halaman */
-    margin-bottom: 20px;
+    margin-bottom: 20px; /* Margin bawah untuk memberi ruang */
 }
-.body {
+
+body {
     font-family: Arial, sans-serif;
     text-align: center;
     padding: 20px;
 }
-.h1 {
-    color: #333;
+
+h1 {
+    color: #333; /* Mengatur warna teks untuk heading h1 */
 }
